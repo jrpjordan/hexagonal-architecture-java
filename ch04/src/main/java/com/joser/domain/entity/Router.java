@@ -10,20 +10,22 @@ import java.util.function.Predicate;
 
 public class Router {
 
-    private final RouterType routerType;
-    private final RouterId routerId;
+    private RouterType type;
+    private RouterId id;
     private Switch networkSwitch;
 
     public Router(RouterType routerType, RouterId routerId, Switch networkSwitch) {
-        this.routerType = routerType;
-        this.routerId = routerId;
+        this.type = routerType;
+        this.id = routerId;
         this.networkSwitch = networkSwitch;
     }
 
     public Router(RouterType routerType, RouterId routerId) {
-        this.routerType = routerType;
-        this.routerId = routerId;
+        this.type = routerType;
+        this.id = routerId;
     }
+
+    public Router() {}
 
     public static Predicate<Router> filterRouterByType(RouterType routerType) {
         return routerType.equals(RouterType.CORE)
@@ -32,15 +34,15 @@ public class Router {
     }
 
     private static Predicate<Router> isCore() {
-        return r -> r.getRouterType() == RouterType.CORE;
+        return r -> r.getType() == RouterType.CORE;
     }
 
     private static Predicate<Router> isEdge() {
-        return r -> r.getRouterType() == RouterType.EDGE;
+        return r -> r.getType() == RouterType.EDGE;
     }
 
-    public RouterType getRouterType() {
-        return routerType;
+    public RouterType getType() {
+        return type;
     }
 
     public void addNetworkToSwitch(Network network) {
@@ -55,8 +57,8 @@ public class Router {
         return networkSwitch.getNetworks();
     }
 
-    public RouterId getRouterId() {
-        return routerId;
+    public RouterId getId() {
+        return id;
     }
 
     public Switch getNetworkSwitch() {

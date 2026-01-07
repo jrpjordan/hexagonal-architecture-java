@@ -10,7 +10,7 @@ import java.util.List;
 
 public class RouterJsonFileMapper {
 
-    public static Router toDoamin(RouterJson routerJson) {
+    public static Router toDomain(RouterJson routerJson) {
         var routerId = RouterId.withUUID(routerJson.getRouterId().toString());
         var routerType = RouterType.valueOf(routerJson.getRouterType().toString());
         var switchId = SwitchId.withId(routerJson.getNetworkSwitch().getSwitchId().toString());
@@ -27,8 +27,8 @@ public class RouterJsonFileMapper {
     }
 
     public static RouterJson toJson(Router router) {
-        var routerId = router.getRouterId().getId();
-        var routerTypeJson = RouterTypeJson.valueOf(router.getRouterType().toString());
+        var routerId = router.getId().getId();
+        var routerTypeJson = RouterTypeJson.valueOf(router.getType().toString());
         var switchIdJson = router.getNetworkSwitch().getSwitchId().getId();
         var switchTypeJson = SwitchTypeJson.valueOf(router.getNetworkSwitch().getSwitchType().toString());
         var ipJson = IPJson.fromAddress(router.getNetworkSwitch().getAddress().getAddress());
