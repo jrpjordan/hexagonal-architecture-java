@@ -16,9 +16,9 @@ public class NetworkOperation {
         var routerTypeSpec = new RouterTypeSpecification();
         var amountSpec = new NetworkAmountSpecification();
 
-        if (cidrSpec.isSatisfiedBy(network.cidr()))
+        if (!cidrSpec.isSatisfiedBy(network.cidr()))
             throw new IllegalArgumentException("cidr is below " + CIDRSpecification.MINIMUM_ALLOWED_CIDR);
-        if (availabilitySpec.isSatisfiedBy(router))
+        if (!availabilitySpec.isSatisfiedBy(router))
             throw new IllegalArgumentException("Address already exists");
         if (amountSpec.and(routerTypeSpec).isSatisfiedBy(router)) {
             Network newNetwork = router

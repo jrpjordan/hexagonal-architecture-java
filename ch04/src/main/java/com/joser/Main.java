@@ -10,6 +10,7 @@ import com.joser.framework.adapters.input.rest.RouterNetworkRestAdapter;
 import com.joser.framework.adapters.input.stdin.RouterNetworkCliAdapter;
 import com.joser.domain.valueobject.RouterId;
 import com.joser.framework.adapters.output.file.RouterNetworkFileAdapter;
+import com.joser.framework.adapters.output.h2.RouterNetworkH2Adapter;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -33,12 +34,12 @@ public class Main {
 
     void setAdapter(String adapter) {
         switch (adapter) {
-            /*case "rest":
+            case "rest":
                 outputPort = RouterNetworkH2Adapter.getInstance();
                 useCase = new RouterNetworkInputPort(outputPort);
                 inputAdapter = new RouterNetworkRestAdapter(useCase);
                 rest();
-                break;*/
+                break;
             default:
                 outputPort = RouterNetworkFileAdapter.getInstance();
                 useCase = new RouterNetworkInputPort(outputPort);

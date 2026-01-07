@@ -17,15 +17,10 @@ import java.util.Scanner;
 
 public class RouterNetworkCliAdapter extends RouterNetworkAdapter {
 
-    RouterNetworkUseCase routerNetworkUseCase;
-
     public RouterNetworkCliAdapter(RouterNetworkUseCase routerNetworkUseCase) {
         this.routerNetworkUseCase = routerNetworkUseCase;
     }
 
-    public Router addNetwork(RouterId routerId, Network network) {
-        return routerNetworkUseCase.addNetworkToRouter(routerId, network);
-    }
 
     @Override
     public Router processRequest(Object requestParams) {
