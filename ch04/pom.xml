@@ -43,14 +43,15 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.22</version>
+            <scope>provided</scope>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>3.3.0</version>
             <type>maven-plugin</type>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
     <build>
@@ -66,7 +67,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.20</version>
+                            <version>1.18.22</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
