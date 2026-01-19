@@ -3,9 +3,12 @@ Following are the instructions to compile and run the code samples.
 
 Before running this application, be sure to download, extract and run Kafka:
 ```
-tar -xzf kafka_2.12-3.4.0.tgz
-cd kafka_2.12-3.4.0
-bin/zookeeper-server-start.sh config/zookeeper.properties
+tar -xzf kafka_2.13-4.1.1.tgz
+cd kafka_2.13-4.1.1
+
+KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
+
 bin/kafka-server-start.sh config/server.properties
 ```
 

@@ -1,6 +1,7 @@
 package com.joser;
 
 import com.joser.application.ports.input.RouterNetworkInputPort;
+import com.joser.application.ports.output.NotifyEventOutputPort;
 import com.joser.application.ports.output.RouterNetworkOutputPort;
 import com.joser.application.usecases.RouterNetworkUseCase;
 import com.joser.domain.valueobject.IP;
@@ -9,8 +10,10 @@ import com.joser.framework.adapters.input.RouterNetworkAdapter;
 import com.joser.framework.adapters.input.rest.RouterNetworkRestAdapter;
 import com.joser.framework.adapters.input.stdin.RouterNetworkCliAdapter;
 import com.joser.domain.valueobject.RouterId;
+import com.joser.framework.adapters.input.websocket.NotifyEventWebSocketAdapter;
 import com.joser.framework.adapters.output.file.RouterNetworkFileAdapter;
 import com.joser.framework.adapters.output.h2.RouterNetworkH2Adapter;
+import com.joser.framework.adapters.output.kafka.NotifyEventKafkaAdapter;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -23,8 +26,9 @@ public class Main {
     RouterNetworkAdapter inputAdapter;
     RouterNetworkUseCase useCase;
     RouterNetworkOutputPort outputPort;
+    private NotifyEventOutputPort notifyOutputPort;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         var adapter = "cli";
         if (args.length > 0) {
             adapter = args[0];
@@ -32,13 +36,15 @@ public class Main {
         new Main().setAdapter(adapter);
     }
 
-    void setAdapter(String adapter) {
+    void setAdapter(String adapter) throws IOException, InterruptedException {
         switch (adapter) {
             case "rest":
                 outputPort = RouterNetworkH2Adapter.getInstance();
+                notifyOutputPort = NotifyEventKafkaAdapter.getInstance();
                 useCase = new RouterNetworkInputPort(outputPort);
                 inputAdapter = new RouterNetworkRestAdapter(useCase);
                 rest();
+                NotifyEventWebSocketAdapter.startServer();
                 break;
             default:
                 outputPort = RouterNetworkFileAdapter.getInstance();

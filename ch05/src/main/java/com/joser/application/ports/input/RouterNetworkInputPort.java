@@ -1,5 +1,6 @@
 package com.joser.application.ports.input;
 
+import com.joser.application.ports.output.NotifyEventOutputPort;
 import com.joser.application.ports.output.RouterNetworkOutputPort;
 import com.joser.application.usecases.RouterNetworkUseCase;
 import com.joser.domain.entity.Router;
@@ -11,18 +12,28 @@ public class RouterNetworkInputPort implements RouterNetworkUseCase {
 
     private final RouterNetworkOutputPort routerNetworkOutputPort;
 
-    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort) {
+    private NotifyEventOutputPort notifyEventOutputPort;
+
+    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort,
+                                  NotifyEventOutputPort notifyEventOutputPort){
+        this.routerNetworkOutputPort = routerNetworkOutputPort;
+        this.notifyEventOutputPort = notifyEventOutputPort;
+    }
+
+    public RouterNetworkInputPort(RouterNetworkOutputPort routerNetworkOutputPort){
         this.routerNetworkOutputPort = routerNetworkOutputPort;
     }
 
     @Override
     public Router addNetworkToRouter(RouterId routerId, Network network) {
         var router = fetchRouter(routerId);
+        notifyEventOutputPort.sendEvent("Adding "+network.name()+" network to router "+router.getId().getId());
         return createNetwork(router, network);
     }
 
     @Override
     public Router getRouter(RouterId routerId) {
+        notifyEventOutputPort.sendEvent("Retrieving router ID "+routerId.getId());
         return fetchRouter(routerId);
     }
 
