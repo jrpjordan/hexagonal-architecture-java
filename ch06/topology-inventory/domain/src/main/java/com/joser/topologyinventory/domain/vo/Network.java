@@ -15,11 +15,9 @@ public class Network {
     private String networkName;
     private int networkCidr;
 
-    public Network(IP networkAddress,
-                   String networkName,
-                   int networkCidr) {
+    public Network(IP networkAddress, String networkName, int networkCidr) {
         if (networkCidr < 1 || networkCidr > 32) {
-            throw new IllegalArgumentException("Invalid CIDR notation.");
+            throw new IllegalArgumentException("Invalid network CIDR value: " + networkCidr);
         }
         this.networkAddress = networkAddress;
         this.networkName = networkName;

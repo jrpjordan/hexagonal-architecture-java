@@ -10,15 +10,14 @@ import java.util.stream.Collectors;
 
 public class SwitchService {
 
-    public static List<Switch> filterAndRetrieveSwitch(List<Switch> switches,
-                                                        Predicate<Switch> switchPredicate) {
+    public static List<Switch> filterAndRetrieveSwitch(List<Switch> switches, Predicate<Switch> switchPredicate){
         return switches
                 .stream()
                 .filter(switchPredicate)
-                .collect(Collectors.toList());
+                .collect(Collectors.<Switch>toList());
     }
 
-    public static Switch findById(Map<Id, Switch> switches, Id id) {
+    public static Switch findById(Map<Id,Switch> switches, Id id){
         return switches.get(id);
     }
 }

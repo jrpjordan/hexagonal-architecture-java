@@ -12,7 +12,8 @@ import java.util.function.Predicate;
 
 @Getter
 @AllArgsConstructor
-public abstract sealed class Equipment permits Router, Switch {
+public abstract sealed class Equipment
+permits Router, Switch {
 
     protected Id id;
     protected Vendor vendor;
@@ -21,6 +22,6 @@ public abstract sealed class Equipment permits Router, Switch {
     protected Location location;
 
     public static Predicate<Equipment> getVendorPredicate(Vendor vendor) {
-        return r-> r.getVendor().equals(vendor);
+        return r -> r.getVendor().equals(vendor);
     }
 }

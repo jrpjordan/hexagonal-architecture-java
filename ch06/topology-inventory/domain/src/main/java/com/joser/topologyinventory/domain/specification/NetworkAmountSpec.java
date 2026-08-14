@@ -15,7 +15,7 @@ public final class NetworkAmountSpec extends AbstractSpecification<Equipment> {
 
     @Override
     public void check(Equipment equipment) throws GenericSpecificationException {
-        if(!isSatisfiedBy(equipment))
-            throw new GenericSpecificationException("The max number of networks is "+ NetworkAmountSpec.MAXIMUM_ALLOWED_NETWORKS);
+        if (!isSatisfiedBy(equipment))
+            throw new GenericSpecificationException("The max number of networks is " +  MAXIMUM_ALLOWED_NETWORKS);
     }
 }

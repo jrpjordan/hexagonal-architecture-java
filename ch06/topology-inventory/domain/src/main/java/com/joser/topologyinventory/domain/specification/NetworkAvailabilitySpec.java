@@ -8,33 +8,33 @@ import com.joser.topologyinventory.domain.vo.Network;
 
 public final class NetworkAvailabilitySpec extends AbstractSpecification<Equipment> {
 
-    private final IP address;
-    private final String name;
-    private final int cidr;
+   private final IP address;
+   private final String name;
+   private final int cidr;
 
-    public NetworkAvailabilitySpec(Network network) {
-        this.address = network.getNetworkAddress();
-        this.name = network.getNetworkName();
-        this.cidr = network.getNetworkCidr();
-    }
+   public NetworkAvailabilitySpec(Network network) {
+       this.address = network.getNetworkAddress();
+       this.name = network.getNetworkName();
+       this.cidr = network.getNetworkCidr();
+   }
 
     @Override
     public boolean isSatisfiedBy(Equipment switchNetworks) {
-        return switchNetworks != null && isNetwrorkAvailable(switchNetworks);
+        return switchNetworks != null && isNetworkAvailable(switchNetworks);
     }
 
     @Override
     public void check(Equipment equipment) throws GenericSpecificationException {
-        if(!isSatisfiedBy(equipment))
+        if (!isSatisfiedBy(equipment))
             throw new GenericSpecificationException("This network already exists");
     }
 
-    private boolean isNetwrorkAvailable(Equipment switchNetworks) {
+    private boolean isNetworkAvailable(Equipment switchNetworks) {
         var availability = true;
         for (Network network : ((Switch)switchNetworks).getSwitchNetworks()) {
-            if(network.getNetworkAddress().equals(this.address)
-                    && network.getNetworkName().equals(this.name)
-                    && network.getNetworkCidr() == this.cidr)
+            if(network.getNetworkAddress().equals(address) &&
+                    network.getNetworkName().equals(name) &&
+                    network.getNetworkCidr() == cidr)
                 availability = false;
             break;
         }

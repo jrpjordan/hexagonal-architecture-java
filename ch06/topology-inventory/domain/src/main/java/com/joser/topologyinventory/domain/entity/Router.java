@@ -24,16 +24,13 @@ public abstract sealed class Router extends Equipment permits CoreRouter, EdgeRo
     }
 
     public static Predicate<Equipment> getCountryPredicate(Location location) {
-        return r -> r.getLocation().country().equals(location.country());
+        return p -> p.location.country().equals(location.country());
     }
 
-    public Router(Id id,
-                  Vendor vendor,
-                  Model model,
-                  IP ip,
-                  Location location,
-                  RouterType routerType) {
+    public Router(Id id, Vendor vendor, Model model, IP ip, Location location, RouterType routerType) {
         super(id, vendor, model, ip, location);
         this.routerType = routerType;
     }
+
+
 }

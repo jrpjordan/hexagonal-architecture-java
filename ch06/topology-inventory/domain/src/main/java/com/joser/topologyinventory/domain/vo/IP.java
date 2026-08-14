@@ -14,9 +14,9 @@ public class IP {
 
     public IP(String ipAddress) {
         if (ipAddress == null)
-            throw new IllegalArgumentException("Null IP address.");
+            throw new IllegalArgumentException("IP address cannot be null");
         this.ipAddress = ipAddress;
-        if (ipAddress.length() <= 15) {
+        if (ipAddress.length() < 15) {
             this.protocol = Protocol.IPV4;
         } else {
             this.protocol = Protocol.IPV6;
@@ -26,5 +26,4 @@ public class IP {
     public static IP fromAddress(String ipAddress) {
         return new IP(ipAddress);
     }
-
 }

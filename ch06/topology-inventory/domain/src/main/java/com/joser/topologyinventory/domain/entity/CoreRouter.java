@@ -24,13 +24,8 @@ public final class CoreRouter extends Router {
     private final Map<Id, Router> routers;
 
     @Builder
-    public CoreRouter(Id id,
-                      Vendor vendor,
-                      Model model,
-                      IP ip,
-                      Location location,
-                      RouterType routerType,
-                      Map<Id, Router> routers) {
+    public CoreRouter(Id id, Vendor vendor, Model model, IP ip, Location location,
+                      RouterType routerType, Map<Id, Router> routers) {
         super(id, vendor, model, ip, location, routerType);
         this.routers = routers;
     }
@@ -46,16 +41,16 @@ public final class CoreRouter extends Router {
     }
 
     public Router removeRouter(Router anyRouter) {
-        var emptyRouterSpec = new EmptyRouterSpec();
+        var emptyRoutersSpec = new EmptyRouterSpec();
         var emptySwitchSpec = new EmptySwitchSpec();
 
-        switch (anyRouter.getRouterType()) {
+        switch (anyRouter.routerType) {
             case CORE -> {
-                var coreRouter = (CoreRouter) anyRouter;
-                emptyRouterSpec.check(coreRouter);
+                var coreRouter = (CoreRouter)anyRouter;
+                emptyRoutersSpec.check(coreRouter);
             }
             case EDGE -> {
-                var edgeRouter = (EdgeRouter) anyRouter;
+                var edgeRouter = (EdgeRouter)anyRouter;
                 emptySwitchSpec.check(edgeRouter);
             }
         }

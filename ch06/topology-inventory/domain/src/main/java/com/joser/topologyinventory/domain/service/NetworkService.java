@@ -8,10 +8,7 @@ import java.util.stream.Collectors;
 
 public class NetworkService {
 
-    public static List<Network> filterAndRetrieveNetworks(List<Network> networks, Predicate<Network> networkPredicate){
-        return networks
-                .stream()
-                .filter(networkPredicate)
-                .collect(Collectors.<Network>toList());
+    public static List<Network> filterAndRetrieveNetworks(List<Network> networks, Predicate<Network> networkPredicate) {
+        return networks.stream().filter(networkPredicate).collect(Collectors.<Network>toList());
     }
 }
