@@ -8,7 +8,7 @@ This is a learning project demonstrating **Hexagonal Architecture** (also known 
 
 ## Project Structure
 
-The project is organized as a Maven multi-module build:
+The project is organized as a Maven multi-module build following the Hexagonal Architecture pattern:
 
 ```
 topology-inventory/
@@ -22,9 +22,72 @@ topology-inventory/
 │   │       ├── specification/ # Specification pattern implementations
 │   │       └── exception/     # Domain exceptions
 │   └── src/test/java/         # Unit tests
+├── application/               # Application module (use cases & ports)
+│   ├── src/main/java/         # Main source code
+│   │   ├── module-info.java   # Module descriptor (Java 9+)
+│   │   └── com/joser/topologyinventory/application/
+│   │       ├── port/          # Input/Output port definitions
+│   │       │   ├── input/     # Input ports (use case interfaces)
+│   │       │   └── output/    # Output ports (adapters interfaces)
+│   │       ├── usecase/       # Use case implementations
+│   │       ├── dto/           # Data Transfer Objects
+│   │       └── exception/     # Application layer exceptions
+│   ├── src/test/java/         # Functional tests
+│   │   ├── cucumber/          # Cucumber step definitions
+│   │   ├── features/          # Gherkin feature files
+│   │   └── stepdefs/          # Cucumber step implementation
+│   └── pom.xml                # Module POM
 ├── pom.xml                    # Root POM
 └── README.md                  # This file
 ```
+
+## Application Layer
+
+The Application Module implements the Hexagonal Architecture pattern with clearly defined ports and adapters:
+
+### Ports (Interfaces)
+
+**Input Ports (Use Case Interfaces)**:
+- Define the public API of the application
+- Expose business use cases to external clients
+- Include operations for managing routers, switches, and networks
+- Handle commands and queries for the topology inventory system
+
+**Output Ports (Adapter Interfaces)**:
+- Define contracts for external systems
+- Enable dependency inversion by abstracting infrastructure concerns
+- Include persistence, notification, and external service adapters
+
+### Use Cases
+
+The application layer implements specific use cases for the topology inventory system:
+- **Router Management**: Add, remove, and query routers
+- **Switch Management**: Add, remove, and query switches
+- **Network Operations**: Create, assign, and validate networks
+- **Topology Queries**: Search and filter equipment by various criteria
+- **Validation Services**: Enforce business rules at the application level
+
+### Data Transfer Objects (DTOs)
+
+DTOs bridge the domain model and external layers:
+- Decouple domain entities from API/adapter contracts
+- Provide a stable external interface even as the domain evolves
+- Handle conversion between domain and external representations
+
+### Functional Test Suite (Cucumber)
+
+The application layer includes a **regression test suite using Cucumber** for behavior-driven testing:
+- **Feature Files**: Business-readable scenarios in Gherkin syntax
+- **Step Definitions**: Java implementations of Gherkin steps
+- **Scenario Coverage**: Functional tests for critical business processes
+- **Regression Protection**: Ensures refactoring doesn't break existing functionality
+
+Test scenarios cover:
+- Adding and removing topology components
+- Network validation and assignment
+- Equipment filtering and searching
+- Business rule enforcement
+- Error and exception cases
 
 ## Domain Model
 
@@ -119,6 +182,18 @@ To run a specific test method:
 mvn test -Dtest=DomainTest#testMethodName
 ```
 
+### Run Cucumber Tests
+
+```bash
+mvn test -Dtest=CucumberRunner
+```
+
+Or run all tests including Cucumber features:
+
+```bash
+mvn verify
+```
+
 ### Generate Test Reports
 
 ```bash
@@ -127,36 +202,57 @@ mvn surefire-report:report
 
 Test reports are generated in `target/site/surefire-report.html`
 
+### View Cucumber Reports
+
+Cucumber generates HTML reports that can be viewed in the target directory after running the tests.
+
 ## Key Learning Points
 
 ### 1. Hexagonal Architecture Principles
 
 - **Domain-Centric Design**: Business logic is isolated in the domain module
-- **Separation of Concerns**: Each package has a clear responsibility
+- **Separation of Concerns**: Each package (domain, application, infrastructure) has a clear responsibility
+- **Ports and Adapters**: Input and output ports define the boundaries between hexagons
+- **Dependency Inversion**: High-level modules depend on abstractions, not concrete implementations
 - **Specification Pattern**: Business rules are encapsulated as reusable specifications
 
-### 2. Value Objects
+### 2. Application Layer Design
+
+- **Input Ports**: Define use cases as service interfaces (domain operations exposed to the world)
+- **Output Ports**: Abstract infrastructure dependencies (databases, message queues, external services)
+- **Use Cases**: Orchestrate domain logic to fulfill business requirements
+- **DTOs**: Transfer data between layers without exposing domain entities
+
+### 3. Value Objects
 
 All value objects are immutable and represent domain concepts with no identity:
 - IP addresses, locations, network models
 - Proper equals/hashCode behavior for collections
 
-### 3. Entity Relationships
+### 4. Entity Relationships
 
 - **Sealed Classes**: Router hierarchy uses Java sealed classes for type safety
 - **Aggregate Roots**: CoreRouter and EdgeRouter act as aggregates managing their relationships
 - **Composite Pattern**: Routers can contain other routers; routers contain switches
 
-### 4. Domain Services
+### 5. Domain Services
 
 - Services provide filtered queries over collections of entities
 - Predicates encapsulate filtering logic for reusability
 - Functional programming patterns (lambdas, streams) for data manipulation
 
-### 5. Exception Handling
+### 6. Exception Handling
 
 - **GenericSpecificationException**: Thrown when business rules are violated
 - Domain exceptions communicate failures to the application layer
+- Application layer catches and translates domain exceptions for external clients
+
+### 7. Behavior-Driven Testing with Cucumber
+
+- **Gherkin Syntax**: Human-readable scenarios for stakeholder communication
+- **Step Definitions**: Bridge between business language and test implementation
+- **Regression Suite**: Protects against unintended behavior changes during refactoring
+- **Living Documentation**: Scenarios document actual system behavior
 
 ## Test Coverage
 
@@ -197,15 +293,23 @@ The project uses Lombok for reducing boilerplate:
 - `@Builder`: Builder pattern implementation
 - Configured as annotation processor in Maven
 
-## Future Enhancements
+## Current Implementation Status
+
+### Completed:
+- ✅ **Domain Layer**: Complete domain model with entities, value objects, and specifications
+- ✅ **Application Layer**: Use cases, ports, and DTOs with Hexagonal Architecture
+- ✅ **Functional Tests**: Cucumber-based regression test suite with Gherkin scenarios
+
+### Future Enhancements
 
 As a learning project, potential areas for expansion:
 
 1. **Infrastructure Layer**: Add persistence implementations (database adapters)
-2. **Application Layer**: Add use cases/application services
-3. **API Layer**: Add REST or gRPC interfaces
-4. **Repository Pattern**: Implement repositories for data persistence
+2. **API Layer**: Add REST or gRPC interfaces (input adapters)
+3. **Repository Pattern**: Implement repositories for data persistence (output adapters)
+4. **Event Sourcing**: Track topology changes as domain events
 5. **Additional Specifications**: More complex business rule combinations
+6. **Web UI**: Frontend for topology visualization and management
 
 ## Dependencies
 
@@ -225,12 +329,17 @@ As a learning project, potential areas for expansion:
 
 This project teaches:
 - Domain-driven design (DDD) fundamentals
-- Hexagonal architecture principles
+- Hexagonal architecture (Ports and Adapters) pattern implementation
+- Complete layered structure: Domain → Application → Infrastructure/Adapters
+- Input ports (use cases) and output ports (adapters) design
 - Specification pattern implementation
-- Java modules and strong encapsulation
+- Behavior-driven development (BDD) with Cucumber and Gherkin
+- Functional regression testing strategies
+- Java modules and strong encapsulation (JPMS)
 - Test-driven development practices
 - Clean architecture in Java
+- Dependency inversion and interface-based design
 
 ---
 
-**Last Updated**: Chapter 6 - Domain Model Foundation
+**Last Updated**: Chapter 7 - Application Layer with Ports, Use Cases, and Cucumber Functional Tests
