@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ClaudeCodeEditorTabs">
-    <option name="activeSessionId" value="2e6add26-4403-43b7-900f-bca485432e86" />
+    <option name="activeSessionId" value="27641ea4-eef8-4226-96b7-ea6c8dfc29db" />
     <option name="openSessionIds">
       <list>
         <option value="cd6e9ade-add9-433c-8b0c-eef59b0d6f09" />
         <option value="27641ea4-eef8-4226-96b7-ea6c8dfc29db" />
-        <option value="2e6add26-4403-43b7-900f-bca485432e86" />
       </list>
     </option>
     <option name="sessionPaths">
       <map>
         <entry key="27641ea4-eef8-4226-96b7-ea6c8dfc29db" value="/sessions/c86a74a9-d51c-42b8-bc8f-0c58863ea6fe" />
-        <entry key="2e6add26-4403-43b7-900f-bca485432e86" value="/sessions/01b39a52-f319-4264-8548-3d9ba9c6774f" />
         <entry key="cd6e9ade-add9-433c-8b0c-eef59b0d6f09" value="/sessions/26ca6994-9743-4d7b-9e1c-0aa896bc66e3" />
       </map>
     </option>
     <option name="sessionTitles">
       <map>
         <entry key="27641ea4-eef8-4226-96b7-ea6c8dfc29db" value="how can I make idea to recognize the .java files?" />
-        <entry key="2e6add26-4403-43b7-900f-bca485432e86" value="fill the README.md file with a description of the" />
         <entry key="cd6e9ade-add9-433c-8b0c-eef59b0d6f09" value="how can I enable autoimport as in the file Id.java" />
       </map>
     </option>

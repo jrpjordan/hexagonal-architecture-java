@@ -1,15 +1,16 @@
 package com.joser.topologyinventory.application;
 
-import static com.joser.topologyinventory.domain.vo.RouterType.*;
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.joser.topologyinventory.domain.entity.CoreRouter;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.entity.Router;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import static com.joser.topologyinventory.domain.vo.RouterType.CORE;
+import static com.joser.topologyinventory.domain.vo.RouterType.EDGE;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RouterRemove extends ApplicationTestData {
 
@@ -76,7 +77,7 @@ public class RouterRemove extends ApplicationTestData {
         assertEquals(CORE, coreRouterToBeRemoved.getRouterType());
     }
 
-    @And("The core router has no other routers connected to it")
+    @And("The core router has no others routers connected to it")
     public void the_core_router_no_other_routers_connected_to_it(){
         assertTrue(coreRouterToBeRemoved.getRouters().isEmpty());
     }

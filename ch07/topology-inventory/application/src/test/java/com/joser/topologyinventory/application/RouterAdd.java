@@ -1,17 +1,17 @@
 package com.joser.topologyinventory.application;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.joser.topologyinventory.domain.entity.CoreRouter;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.vo.IP;
 import com.joser.topologyinventory.domain.vo.Model;
 import com.joser.topologyinventory.domain.vo.RouterType;
 import com.joser.topologyinventory.domain.vo.Vendor;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class RouterAdd extends ApplicationTestData {
 
@@ -46,7 +46,7 @@ public class RouterAdd extends ApplicationTestData {
         assertNotNull(coreRouter);
     }
 
-    @Then("I add and edge router to a core router")
+    @Then("I add an edge router to a core router")
     public void add_edge_to_core_router() {
         var actualEdgeId = edgeRouter.getId();
         var routerWithEdge = (CoreRouter) this.routerManagementUseCase.

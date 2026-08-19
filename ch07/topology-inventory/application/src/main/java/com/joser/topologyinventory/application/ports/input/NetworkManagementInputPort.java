@@ -8,9 +8,11 @@ import com.joser.topologyinventory.domain.vo.Network;
 public class NetworkManagementInputPort implements NetworkManagementUseCase {
 
     @Override
-    public Network creaNetwork(IP networkAddress, String networkName, int netwokrCidr) {
-        return Network.builder().networkAddress(networkAddress).
-                networkName(networkName).networkCidr(netwokrCidr).
+    public Network createNetwork(IP networkAddress, String networkName, int networkCidr) {
+        return Network.builder().
+                networkAddress(networkAddress).
+                networkName(networkName).
+                networkCidr(networkCidr).
                 build();
     }
 

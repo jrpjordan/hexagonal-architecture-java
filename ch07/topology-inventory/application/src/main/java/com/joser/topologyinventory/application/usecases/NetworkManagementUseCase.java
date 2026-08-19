@@ -6,8 +6,8 @@ import com.joser.topologyinventory.domain.vo.Network;
 
 public interface NetworkManagementUseCase {
 
-    Network creaNetwork(IP networkAddress, String networkName,
-                        int netwokrCidr);
+    Network createNetwork(IP networkAddress, String networkName,
+                        int networkCidr);
                     
     Switch addNetworkToSwitch(Network network, Switch networkSwitch);
 
