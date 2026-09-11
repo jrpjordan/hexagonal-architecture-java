@@ -17,6 +17,11 @@ public class RouterManagementInputPort implements RouterManagementUseCase {
 
     RouterManagementOutputPort routerManagementOutputPort;
 
+    public RouterManagementInputPort()  {}
+
+    public RouterManagementInputPort(RouterManagementOutputPort routerManagementOutputPort) {
+        this.routerManagementOutputPort = routerManagementOutputPort;
+    }
 
     @Override
     public Router createRouter(Vendor vendor, Model model, IP ip,
@@ -46,6 +51,11 @@ public class RouterManagementInputPort implements RouterManagementUseCase {
     public Router persistRouter(Router router) {
         return routerManagementOutputPort.persistRouter(router);
     }
-    
+
+    @Override
+    public Router removeRouter(Id id) {
+        return routerManagementOutputPort.removeRouter(id);
+    }
+
 
 }

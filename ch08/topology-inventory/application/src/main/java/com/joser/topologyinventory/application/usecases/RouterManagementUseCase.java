@@ -22,4 +22,6 @@ public interface RouterManagementUseCase {
 
     Router persistRouter(Router router);
 
+    Router removeRouter(Id id);
+
 }

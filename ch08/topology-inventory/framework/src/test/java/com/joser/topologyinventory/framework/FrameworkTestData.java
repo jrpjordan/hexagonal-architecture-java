@@ -1,16 +1,5 @@
-package com.joser.topologyinventory.application;
+package com.joser.topologyinventory.framework;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.joser.topologyinventory.application.ports.input.NetworkManagementInputPort;
-import com.joser.topologyinventory.application.ports.input.RouterManagementInputPort;
-import com.joser.topologyinventory.application.ports.input.SwitchManagementInputPort;
-import com.joser.topologyinventory.application.usecases.NetworkManagementUseCase;
-import com.joser.topologyinventory.application.usecases.RouterManagementUseCase;
-import com.joser.topologyinventory.application.usecases.SwitchManagementUseCase;
 import com.joser.topologyinventory.domain.entity.CoreRouter;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.entity.Router;
@@ -24,14 +13,12 @@ import com.joser.topologyinventory.domain.vo.RouterType;
 import com.joser.topologyinventory.domain.vo.SwitchType;
 import com.joser.topologyinventory.domain.vo.Vendor;
 
-public class ApplicationTestData {
-    protected RouterManagementUseCase routerManagementUseCase;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-    protected SwitchManagementUseCase switchManagementUseCase;
-
-    protected NetworkManagementUseCase networkManagementUseCase;
-
-    protected Router router;
+public class FrameworkTestData {
 
     protected List<Router> routers = new ArrayList<>();
 
@@ -60,10 +47,15 @@ public class ApplicationTestData {
     protected Location locationB;
 
     public void loadData(){
-        this.routerManagementUseCase = new RouterManagementInputPort();
-        this.switchManagementUseCase = new SwitchManagementInputPort();
-        this.networkManagementUseCase = new NetworkManagementInputPort();
         this.locationA = new Location(
+                "Amos Ln",
+                "Tully",
+                "NY",
+                13159,
+                "United States",
+                42.797310F,
+                -76.130750F);
+        this.locationB = new Location(
                 "Av Republica Argentina 3109",
                 "Curitiba",
                 "PR",
@@ -71,14 +63,6 @@ public class ApplicationTestData {
                 "Brazil",
                 10F,
                 -10F);
-        this.locationB = new Location(
-                "Av Republica Argentina 3110",
-                "Curitiba",
-                "PR",
-                80610360,
-                "Brazil",
-                11F,
-                -11F);
         this.network  = Network.builder().
                 networkAddress(IP.fromAddress("20.0.0.0")).
                 networkName("TestNetwork").
@@ -122,7 +106,6 @@ public class ApplicationTestData {
                 location(locationA).
                 routerType(RouterType.CORE).
                 build();
-        this.coreRouter.addRouter(newCoreRouter);
         this.newEdgeRouter = EdgeRouter.builder().
                 id(Id.withId("ca23800e-9b5a-11eb-a8b3-0242ac130003")).
                 vendor(Vendor.CISCO).

@@ -3,6 +3,7 @@ package com.joser.topologyinventory.application.usecases;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.entity.Switch;
 import com.joser.topologyinventory.domain.vo.IP;
+import com.joser.topologyinventory.domain.vo.Id;
 import com.joser.topologyinventory.domain.vo.Location;
 import com.joser.topologyinventory.domain.vo.Model;
 import com.joser.topologyinventory.domain.vo.SwitchType;
@@ -18,4 +19,6 @@ public interface SwitchManagementUseCase {
 
     EdgeRouter removeSwitchFromEdgeRouter(Switch networkSwitch,
                                          EdgeRouter edgeRouter);
+
+    Switch retrieveSwitch(Id id);
 }

@@ -14,9 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class NetworkRemove extends ApplicationTestData {
 
+
     Predicate<Network> predicate;
 
-    public NetworkRemove() {
+    public NetworkRemove(){
         loadData();
     }
 
@@ -37,7 +38,7 @@ public class NetworkRemove extends ApplicationTestData {
     @Then("I remove the network from the switch")
     public void i_remove_the_network_from_the_switch(){
         this.networkManagementUseCase.
-                removeNetworkFromSwitch(network, networkSwitch);
+                removeNetworkFromSwitch("Marketing", networkSwitch);
         network = NetworkService.
                 findNetwork(networks, predicate);
         assertNull(network);

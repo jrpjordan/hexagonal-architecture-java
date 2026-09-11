@@ -1,5 +1,6 @@
 package com.joser.topologyinventory.application.ports.input;
 
+import com.joser.topologyinventory.application.ports.output.SwitchManagementOutputPort;
 import com.joser.topologyinventory.application.usecases.SwitchManagementUseCase;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.entity.Switch;
@@ -11,6 +12,14 @@ import com.joser.topologyinventory.domain.vo.SwitchType;
 import com.joser.topologyinventory.domain.vo.Vendor;
 
 public class SwitchManagementInputPort implements SwitchManagementUseCase {
+
+    private SwitchManagementOutputPort switchManagementOutputPort;
+
+    public SwitchManagementInputPort() {}
+
+    public SwitchManagementInputPort(SwitchManagementOutputPort switchManagementOutputPort){
+        this.switchManagementOutputPort = switchManagementOutputPort;
+    }
 
     @Override
     public Switch createSwitch(Vendor vendor, Model model, IP ip, Location location, SwitchType switchType) {
@@ -35,5 +44,10 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
         edgeRouter.removeSwitch(networkSwitch);
         return edgeRouter;
     }
-    
+
+    @Override
+    public Switch retrieveSwitch(Id id) {
+        return switchManagementOutputPort.retrieveSwitch(id);
+    }
+
 }
