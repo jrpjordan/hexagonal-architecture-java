@@ -37,6 +37,25 @@ topology-inventory/
 │   │   ├── features/          # Gherkin feature files
 │   │   └── stepdefs/          # Cucumber step implementation
 │   └── pom.xml                # Module POM
+├── framework/                 # Framework/Infrastructure module (adapters & persistence)
+│   ├── src/main/java/         # Main source code
+│   │   ├── module-info.java   # Module descriptor (Java 9+)
+│   │   └── com/joser/topologyinventory/framework/
+│   │       └── adapters/      # Concrete adapter implementations
+│   │           ├── input/     # Input adapters
+│   │           │   └── generic/   # Generic input adapters
+│   │           │       ├── RouterManagementGenericAdapter
+│   │           │       ├── SwitchManagementGenericAdapter
+│   │           │       └── NetworkManagementGenericAdapter
+│   │           └── output/    # Output adapters (persistence)
+│   │               └── h2/    # H2 database adapters
+│   │                   ├── data/       # JPA entity classes
+│   │                   └── mappers/    # Domain-to-Data mappers
+│   ├── src/main/resources/    # Configuration files
+│   │   ├── META-INF/persistence.xml   # JPA configuration
+│   │   └── inventory.sql               # Database schema
+│   ├── src/test/java/         # Framework tests
+│   └── pom.xml                # Module POM
 ├── pom.xml                    # Root POM
 └── README.md                  # This file
 ```
@@ -88,6 +107,39 @@ Test scenarios cover:
 - Equipment filtering and searching
 - Business rule enforcement
 - Error and exception cases
+
+## Framework/Infrastructure Layer
+
+The Framework Module implements the concrete adapters that connect the application to external systems:
+
+### Input Adapters
+
+**Generic Adapters** provide flexible input port implementations:
+- **RouterManagementGenericAdapter**: Implements `RouterManagementInputPort` for router operations
+- **SwitchManagementGenericAdapter**: Implements `SwitchManagementInputPort` for switch operations  
+- **NetworkManagementGenericAdapter**: Implements `NetworkManagementInputPort` for network operations
+
+These adapters delegate to the corresponding use cases and handle translation between external requests and domain models.
+
+### Output Adapters (Persistence)
+
+**H2 Database Adapters** implement output ports for persistence:
+- **RouterManagementH2Adapter**: Persists routers to H2 database
+- **SwitchManagementH2Adapter**: Persists switches to H2 database
+- Implements repository pattern with JPA/Hibernate ORM
+
+**Data Classes & Mapping**:
+- **RouterData, SwitchData, NetworkData**: JPA entity classes for database persistence
+- **RouterH2Mapper**: Converts between domain entities and JPA data classes
+- **Supporting Classes**: IPData, LocationData, ModelData, VendorData, etc. for value object persistence
+- **UUIDTypeConverter**: Custom Hibernate type converter for UUID handling
+
+### Persistence Configuration
+
+- **JPA/Jakarta Persistence**: Uses Eclipse Persistence (EclipseLink) JPA provider
+- **H2 Database**: In-memory database for testing and learning
+- **persistence.xml**: JPA configuration with entity mappings and provider settings
+- **inventory.sql**: Database schema with tables for routers, switches, and networks
 
 ## Domain Model
 
@@ -299,23 +351,33 @@ The project uses Lombok for reducing boilerplate:
 - ✅ **Domain Layer**: Complete domain model with entities, value objects, and specifications
 - ✅ **Application Layer**: Use cases, ports, and DTOs with Hexagonal Architecture
 - ✅ **Functional Tests**: Cucumber-based regression test suite with Gherkin scenarios
+- ✅ **Framework/Infrastructure Layer**: Generic input adapters and H2 database output adapters with JPA persistence
 
 ### Future Enhancements
 
 As a learning project, potential areas for expansion:
 
-1. **Infrastructure Layer**: Add persistence implementations (database adapters)
-2. **API Layer**: Add REST or gRPC interfaces (input adapters)
-3. **Repository Pattern**: Implement repositories for data persistence (output adapters)
-4. **Event Sourcing**: Track topology changes as domain events
-5. **Additional Specifications**: More complex business rule combinations
-6. **Web UI**: Frontend for topology visualization and management
+1. **API Layer**: Add REST or gRPC interfaces (input adapters)
+2. **Additional Persistence**: PostgreSQL, MySQL, or other relational databases
+3. **Event Sourcing**: Track topology changes as domain events
+4. **Additional Specifications**: More complex business rule combinations
+5. **Web UI**: Frontend for topology visualization and management
+6. **Caching Layer**: Redis or in-memory caching for frequently accessed data
+7. **Message Queue Integration**: Kafka or RabbitMQ for asynchronous notifications
 
 ## Dependencies
 
+### Core Dependencies
 - **Lombok 1.18.20**: Boilerplate reduction
 - **JUnit 5**: Testing framework
+- **Cucumber**: Behavior-driven testing framework
 - **Java 17**: Modern Java features (records, sealed classes, modules)
+
+### Framework/Infrastructure Dependencies
+- **H2 Database 1.4.200**: In-memory relational database
+- **Jakarta Persistence 3.0.0**: JPA API
+- **Eclipse Persistence 3.0.1**: JPA provider (EclipseLink ORM)
+- **Jackson Databind 2.9.7**: JSON serialization/deserialization
 
 ## Code Style
 
@@ -332,6 +394,9 @@ This project teaches:
 - Hexagonal architecture (Ports and Adapters) pattern implementation
 - Complete layered structure: Domain → Application → Infrastructure/Adapters
 - Input ports (use cases) and output ports (adapters) design
+- Concrete adapter implementation for real-world scenarios
+- Output adapter pattern with JPA/ORM for persistence
+- Mapper pattern for translating between domain and persistence models
 - Specification pattern implementation
 - Behavior-driven development (BDD) with Cucumber and Gherkin
 - Functional regression testing strategies
@@ -339,7 +404,9 @@ This project teaches:
 - Test-driven development practices
 - Clean architecture in Java
 - Dependency inversion and interface-based design
+- Repository pattern with ORM frameworks
+- Database schema design and JPA entity mapping
 
 ---
 
-**Last Updated**: Chapter 7 - Application Layer with Ports, Use Cases, and Cucumber Functional Tests
+**Last Updated**: Chapter 8 - Framework/Infrastructure Layer with Generic Input Adapters and H2 Database Persistence
