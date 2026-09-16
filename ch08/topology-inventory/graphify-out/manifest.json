@@ -1,0 +1,482 @@
+{
+  "application/pom.xml": {
+    "mtime": 1787150946.920166,
+    "seen": 1789545826.947933,
+    "ast_hash": "fb4f58f0fee8c521f61202c12c294d25",
+    "semantic_hash": "fb4f58f0fee8c521f61202c12c294d25"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/ports/input/NetworkManagementInputPort.java": {
+    "mtime": 1789134646.1783795,
+    "seen": 1789545826.9479349,
+    "ast_hash": "2396a8898b4496d53451f7d52527a848",
+    "semantic_hash": "2396a8898b4496d53451f7d52527a848"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/ports/input/RouterManagementInputPort.java": {
+    "mtime": 1789133814.995677,
+    "seen": 1789545826.947936,
+    "ast_hash": "ba3f8a6c3f35388e162dff4bbda82ac4",
+    "semantic_hash": "ba3f8a6c3f35388e162dff4bbda82ac4"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/ports/input/SwitchManagementInputPort.java": {
+    "mtime": 1789134378.9247322,
+    "seen": 1789545826.947936,
+    "ast_hash": "0506adcb2579467b531886412bb6bfc6",
+    "semantic_hash": "0506adcb2579467b531886412bb6bfc6"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/ports/output/RouterManagementOutputPort.java": {
+    "mtime": 1787149641.7979767,
+    "seen": 1789545826.947936,
+    "ast_hash": "92983f1bc5ce03f49b7271f13dbc7d7a",
+    "semantic_hash": "92983f1bc5ce03f49b7271f13dbc7d7a"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/ports/output/SwitchManagementOutputPort.java": {
+    "mtime": 1787215188.486291,
+    "seen": 1789545826.947937,
+    "ast_hash": "5bcf27747d0dc865315bffc85992c0b5",
+    "semantic_hash": "5bcf27747d0dc865315bffc85992c0b5"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/usecases/NetworkManagementUseCase.java": {
+    "mtime": 1789134536.872694,
+    "seen": 1789545826.947937,
+    "ast_hash": "d263cf072f293559073f2aed5b18a0b1",
+    "semantic_hash": "d263cf072f293559073f2aed5b18a0b1"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/usecases/RouterManagementUseCase.java": {
+    "mtime": 1789133781.9317787,
+    "seen": 1789545826.947938,
+    "ast_hash": "2c2616487807e3b939673f81be98ea35",
+    "semantic_hash": "2c2616487807e3b939673f81be98ea35"
+  },
+  "application/src/main/java/com/joser/topologyinventory/application/usecases/SwitchManagementUseCase.java": {
+    "mtime": 1789134355.1230166,
+    "seen": 1789545826.947938,
+    "ast_hash": "a2af233042df22365ceee90fbf3736cf",
+    "semantic_hash": "a2af233042df22365ceee90fbf3736cf"
+  },
+  "application/src/main/java/module-info.java": {
+    "mtime": 1787151537.2492406,
+    "seen": 1789545826.9479392,
+    "ast_hash": "6bee419889eb4f41890827039f2e406b",
+    "semantic_hash": "6bee419889eb4f41890827039f2e406b"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/ApplicationTestData.java": {
+    "mtime": 1789134724.9455688,
+    "seen": 1789545826.9479392,
+    "ast_hash": "fad6fc6d1dacbea3fe310452edcd3101",
+    "semantic_hash": "fad6fc6d1dacbea3fe310452edcd3101"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/NetworkAdd.java": {
+    "mtime": 1787149104.3620512,
+    "seen": 1789545826.9479392,
+    "ast_hash": "ca082659693bb915815e15be2037fc02",
+    "semantic_hash": "ca082659693bb915815e15be2037fc02"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/NetworkCreate.java": {
+    "mtime": 1787149104.3626113,
+    "seen": 1789545826.94794,
+    "ast_hash": "f9046a319590657f742ff27e6c346511",
+    "semantic_hash": "f9046a319590657f742ff27e6c346511"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/NetworkRemove.java": {
+    "mtime": 1789134685.0161617,
+    "seen": 1789545826.94794,
+    "ast_hash": "6b629784b96f5aff174587249d7567d0",
+    "semantic_hash": "6b629784b96f5aff174587249d7567d0"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/RouterAdd.java": {
+    "mtime": 1787149104.362881,
+    "seen": 1789545826.94794,
+    "ast_hash": "795510c1c6b10dbcabc25857e1806425",
+    "semantic_hash": "795510c1c6b10dbcabc25857e1806425"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/RouterCreate.java": {
+    "mtime": 1787149104.363147,
+    "seen": 1789545826.947941,
+    "ast_hash": "530a4d03557d5218e52445b7b97342d8",
+    "semantic_hash": "530a4d03557d5218e52445b7b97342d8"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/RouterRemove.java": {
+    "mtime": 1787149104.3634226,
+    "seen": 1789545826.947941,
+    "ast_hash": "b7e8b2062c1f9cbdfb497d53c632272a",
+    "semantic_hash": "b7e8b2062c1f9cbdfb497d53c632272a"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/RunCucumberTest.java": {
+    "mtime": 1787149104.3612177,
+    "seen": 1789545826.9479418,
+    "ast_hash": "0f8ca7dfe2ee0f44240b15a05b9a9689",
+    "semantic_hash": "0f8ca7dfe2ee0f44240b15a05b9a9689"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/StepDefinitions.java": {
+    "mtime": 1787149104.3609502,
+    "seen": 1789545826.9479418,
+    "ast_hash": "64f6a21ffaead4f951526f4878b72fd4",
+    "semantic_hash": "64f6a21ffaead4f951526f4878b72fd4"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/SwitchAdd.java": {
+    "mtime": 1787150731.0814707,
+    "seen": 1789545826.9479418,
+    "ast_hash": "89c3ea86fa87cdf2bdff4d6a9319d2c0",
+    "semantic_hash": "89c3ea86fa87cdf2bdff4d6a9319d2c0"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/SwitchCreate.java": {
+    "mtime": 1787149104.3617778,
+    "seen": 1789545826.947943,
+    "ast_hash": "260f150399aa9a6138d1e622756f6529",
+    "semantic_hash": "260f150399aa9a6138d1e622756f6529"
+  },
+  "application/src/test/java/com/joser/topologyinventory/application/SwitchRemove.java": {
+    "mtime": 1787149104.3623264,
+    "seen": 1789545826.947943,
+    "ast_hash": "e24658bf4edd77c0d035ac19712970fb",
+    "semantic_hash": "e24658bf4edd77c0d035ac19712970fb"
+  },
+  "domain/pom.xml": {
+    "mtime": 1787149104.3685508,
+    "seen": 1789545826.947943,
+    "ast_hash": "4582fca9a0e0c7670134291fba29fa3d",
+    "semantic_hash": "4582fca9a0e0c7670134291fba29fa3d"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/CoreRouter.java": {
+    "mtime": 1787213326.643922,
+    "seen": 1789545826.947944,
+    "ast_hash": "0ace0c4d143792b10df730520d02425e",
+    "semantic_hash": "0ace0c4d143792b10df730520d02425e"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/EdgeRouter.java": {
+    "mtime": 1787213350.692477,
+    "seen": 1789545826.947944,
+    "ast_hash": "238a3ec7ec811d52ae51efbd658866f9",
+    "semantic_hash": "238a3ec7ec811d52ae51efbd658866f9"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/Equipment.java": {
+    "mtime": 1787149104.3744671,
+    "seen": 1789545826.9479449,
+    "ast_hash": "4d69ca3703f2f41427e513de536df1a8",
+    "semantic_hash": "4d69ca3703f2f41427e513de536df1a8"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/Router.java": {
+    "mtime": 1787149104.3746772,
+    "seen": 1789545826.9479449,
+    "ast_hash": "71e62223282a4454cec0977ec8ca4b11",
+    "semantic_hash": "71e62223282a4454cec0977ec8ca4b11"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/Switch.java": {
+    "mtime": 1787213429.129309,
+    "seen": 1789545826.9479449,
+    "ast_hash": "5339cfd78a60817b9a9924dfb5e2f359",
+    "semantic_hash": "5339cfd78a60817b9a9924dfb5e2f359"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/entity/factory/RouterFactory.java": {
+    "mtime": 1787149104.3756156,
+    "seen": 1789545826.947946,
+    "ast_hash": "d9dda9d85737befcc93bd6f509181a8a",
+    "semantic_hash": "d9dda9d85737befcc93bd6f509181a8a"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/exception/GenericSpecificationException.java": {
+    "mtime": 1787149104.3798192,
+    "seen": 1789545826.947946,
+    "ast_hash": "cefb54e47b9373cdd1d13ec4deaba947",
+    "semantic_hash": "cefb54e47b9373cdd1d13ec4deaba947"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/service/NetworkService.java": {
+    "mtime": 1787149104.3792107,
+    "seen": 1789545826.947946,
+    "ast_hash": "d65bfae1aa9405bea6e69e047ec2f43f",
+    "semantic_hash": "d65bfae1aa9405bea6e69e047ec2f43f"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/service/RouterService.java": {
+    "mtime": 1787149104.3789823,
+    "seen": 1789545826.947947,
+    "ast_hash": "f33a1d0a219360447dc786605974bbb1",
+    "semantic_hash": "f33a1d0a219360447dc786605974bbb1"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/service/SwitchService.java": {
+    "mtime": 1787149104.3794315,
+    "seen": 1789545826.947947,
+    "ast_hash": "355265b12f9ddc2fadcf012a2d861bd5",
+    "semantic_hash": "355265b12f9ddc2fadcf012a2d861bd5"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/AbstractSpecification.java": {
+    "mtime": 1787149104.3785627,
+    "seen": 1789545826.947948,
+    "ast_hash": "068286c2008318f6621b42316822615e",
+    "semantic_hash": "068286c2008318f6621b42316822615e"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/AndSpecification.java": {
+    "mtime": 1787149104.3777816,
+    "seen": 1789545826.947948,
+    "ast_hash": "881bc1970e21ef97e57918595048a126",
+    "semantic_hash": "881bc1970e21ef97e57918595048a126"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/CIDRSpecification.java": {
+    "mtime": 1787149104.3764505,
+    "seen": 1789545826.947948,
+    "ast_hash": "b1754835eb59eb658e3fcae648d0074a",
+    "semantic_hash": "b1754835eb59eb658e3fcae648d0074a"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/EmptyNetworkSpec.java": {
+    "mtime": 1787149104.378117,
+    "seen": 1789545826.9479492,
+    "ast_hash": "a8990fb9101788568d0ef95ffaaeaf01",
+    "semantic_hash": "a8990fb9101788568d0ef95ffaaeaf01"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/EmptyRouterSpec.java": {
+    "mtime": 1787149104.3766668,
+    "seen": 1789545826.9479492,
+    "ast_hash": "24be4e2006e473d88fa583f2a015e7a8",
+    "semantic_hash": "24be4e2006e473d88fa583f2a015e7a8"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/EmptySwitchSpec.java": {
+    "mtime": 1787149104.37623,
+    "seen": 1789545826.9479492,
+    "ast_hash": "1e83c4e1b5bcfc468e482d16f5e4850b",
+    "semantic_hash": "1e83c4e1b5bcfc468e482d16f5e4850b"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/NetworkAmountSpec.java": {
+    "mtime": 1787149104.377341,
+    "seen": 1789545826.9479501,
+    "ast_hash": "cd250f5cb81a52bdcef2983095e0e76c",
+    "semantic_hash": "cd250f5cb81a52bdcef2983095e0e76c"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/NetworkAvailabilitySpec.java": {
+    "mtime": 1787149104.377105,
+    "seen": 1789545826.9479501,
+    "ast_hash": "4841790c2649ceabf977b5f761b5c1ca",
+    "semantic_hash": "4841790c2649ceabf977b5f761b5c1ca"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/SameCountrySpec.java": {
+    "mtime": 1787149104.378337,
+    "seen": 1789545826.9479501,
+    "ast_hash": "f0b1838db5123304dc1fb485d8a65ff6",
+    "semantic_hash": "f0b1838db5123304dc1fb485d8a65ff6"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/SameIpSpec.java": {
+    "mtime": 1787149104.3775582,
+    "seen": 1789545826.947951,
+    "ast_hash": "106d70cfa574d13db2227ee47826b9f5",
+    "semantic_hash": "106d70cfa574d13db2227ee47826b9f5"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/specification/Specification.java": {
+    "mtime": 1787149104.3768783,
+    "seen": 1789545826.947951,
+    "ast_hash": "796bbc1a1c8e1770519f1342ccc5c55b",
+    "semantic_hash": "796bbc1a1c8e1770519f1342ccc5c55b"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/IP.java": {
+    "mtime": 1787149104.3721797,
+    "seen": 1789545826.947952,
+    "ast_hash": "cc8532b15d3eb6febf4b7d8d80706c05",
+    "semantic_hash": "cc8532b15d3eb6febf4b7d8d80706c05"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Id.java": {
+    "mtime": 1787211851.636764,
+    "seen": 1789545826.947952,
+    "ast_hash": "856c4c5158801526489565b24edf37d1",
+    "semantic_hash": "856c4c5158801526489565b24edf37d1"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Location.java": {
+    "mtime": 1787149104.3738356,
+    "seen": 1789545826.947952,
+    "ast_hash": "3d7972178faba5100d6dd7cb59ca104e",
+    "semantic_hash": "3d7972178faba5100d6dd7cb59ca104e"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Model.java": {
+    "mtime": 1787149104.3740618,
+    "seen": 1789545826.947953,
+    "ast_hash": "8a112dedde2ad41941fa4a57cb4cd8ff",
+    "semantic_hash": "8a112dedde2ad41941fa4a57cb4cd8ff"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Network.java": {
+    "mtime": 1787149104.3730743,
+    "seen": 1789545826.947953,
+    "ast_hash": "bc42cd8535f852abba8717608e6b700b",
+    "semantic_hash": "bc42cd8535f852abba8717608e6b700b"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Protocol.java": {
+    "mtime": 1787149104.372869,
+    "seen": 1789545826.947954,
+    "ast_hash": "9e01e8bf5b17435b80475d2e693b2bc4",
+    "semantic_hash": "9e01e8bf5b17435b80475d2e693b2bc4"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/RouterType.java": {
+    "mtime": 1787149104.3732905,
+    "seen": 1789545826.947954,
+    "ast_hash": "6e6b3b79c7709810b3756e6e14712fa5",
+    "semantic_hash": "6e6b3b79c7709810b3756e6e14712fa5"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/SwitchType.java": {
+    "mtime": 1787149104.3724177,
+    "seen": 1789545826.947954,
+    "ast_hash": "ebbdcb826210fd81a93a68e414e7d0a6",
+    "semantic_hash": "ebbdcb826210fd81a93a68e414e7d0a6"
+  },
+  "domain/src/main/java/com/joser/topologyinventory/domain/vo/Vendor.java": {
+    "mtime": 1787149104.373636,
+    "seen": 1789545826.947955,
+    "ast_hash": "52ab21240ea4544b02dbc31d5a818b5a",
+    "semantic_hash": "52ab21240ea4544b02dbc31d5a818b5a"
+  },
+  "domain/src/main/java/module-info.java": {
+    "mtime": 1787149104.370983,
+    "seen": 1789545826.947955,
+    "ast_hash": "8bdd249a35880dc2a4585bbe0ecfeb28",
+    "semantic_hash": "8bdd249a35880dc2a4585bbe0ecfeb28"
+  },
+  "domain/src/test/java/com/joser/topologyinventory/domain/DomainTest.java": {
+    "mtime": 1787149104.370289,
+    "seen": 1789545826.947955,
+    "ast_hash": "6c6c88a9b7daa4e4d1a5eb533dbddfb9",
+    "semantic_hash": "6c6c88a9b7daa4e4d1a5eb533dbddfb9"
+  },
+  "framework/pom.xml": {
+    "mtime": 1789135600.0828145,
+    "seen": 1789545826.947956,
+    "ast_hash": "3cb3ac32e6e90287b31fc8ced9094718",
+    "semantic_hash": "3cb3ac32e6e90287b31fc8ced9094718"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/input/generic/NetworkManagementGenericAdapter.java": {
+    "mtime": 1789134444.0905104,
+    "seen": 1789545826.947956,
+    "ast_hash": "40d77315d20bfc1711f22789686c1d65",
+    "semantic_hash": "40d77315d20bfc1711f22789686c1d65"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/input/generic/RouterManagementGenericAdapter.java": {
+    "mtime": 1789134088.7545736,
+    "seen": 1789545826.947957,
+    "ast_hash": "0e130ecbaa707db5ba82e53d2814559c",
+    "semantic_hash": "0e130ecbaa707db5ba82e53d2814559c"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/input/generic/SwitchManagementGenericAdapter.java": {
+    "mtime": 1789134231.2013984,
+    "seen": 1789545826.947957,
+    "ast_hash": "e23bc029f2f527ec44ffeb2ed1e2f26a",
+    "semantic_hash": "e23bc029f2f527ec44ffeb2ed1e2f26a"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/RouterManagementH2Adapter.java": {
+    "mtime": 1787211897.0260832,
+    "seen": 1789545826.947957,
+    "ast_hash": "1184dcc0ccef73e4c9526aaff9704fc4",
+    "semantic_hash": "1184dcc0ccef73e4c9526aaff9704fc4"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/SwitchManagementH2Adapter.java": {
+    "mtime": 1789132517.2383044,
+    "seen": 1789545826.947958,
+    "ast_hash": "1d4f443001f815bdec2951f7da8541c6",
+    "semantic_hash": "1d4f443001f815bdec2951f7da8541c6"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/IPData.java": {
+    "mtime": 1787210848.2765107,
+    "seen": 1789545826.947958,
+    "ast_hash": "7114b62f20d0e880e532bc6e3ccf7c0b",
+    "semantic_hash": "7114b62f20d0e880e532bc6e3ccf7c0b"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/LocationData.java": {
+    "mtime": 1787210898.3869846,
+    "seen": 1789545826.947958,
+    "ast_hash": "b3ba7d3774769f45f1d9e12c6f990b8a",
+    "semantic_hash": "b3ba7d3774769f45f1d9e12c6f990b8a"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/ModelData.java": {
+    "mtime": 1787210935.5345087,
+    "seen": 1789545826.947959,
+    "ast_hash": "7094ef528277a9742e59eda2518bb1ef",
+    "semantic_hash": "7094ef528277a9742e59eda2518bb1ef"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/NetworkData.java": {
+    "mtime": 1787211370.3077738,
+    "seen": 1789545826.947959,
+    "ast_hash": "e41ceb3329b115bd9a8882b5f503e68a",
+    "semantic_hash": "e41ceb3329b115bd9a8882b5f503e68a"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/ProtocolData.java": {
+    "mtime": 1787211015.9533472,
+    "seen": 1789545826.947959,
+    "ast_hash": "95287c4650e5e362c87153df7f7b7c16",
+    "semantic_hash": "95287c4650e5e362c87153df7f7b7c16"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/RouterData.java": {
+    "mtime": 1787213297.694317,
+    "seen": 1789545826.9479601,
+    "ast_hash": "4cf73718b391dee8237acdb23d263561",
+    "semantic_hash": "4cf73718b391dee8237acdb23d263561"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/RouterTypeData.java": {
+    "mtime": 1787211036.5883746,
+    "seen": 1789545826.9479601,
+    "ast_hash": "61c698a39bb43456239a5c13b89ff03f",
+    "semantic_hash": "61c698a39bb43456239a5c13b89ff03f"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/SwitchData.java": {
+    "mtime": 1787211654.7656782,
+    "seen": 1789545826.947961,
+    "ast_hash": "5e52107d515ac1d33819bfdf5ca2a285",
+    "semantic_hash": "5e52107d515ac1d33819bfdf5ca2a285"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/SwitchTypeData.java": {
+    "mtime": 1787211115.7524314,
+    "seen": 1789545826.947961,
+    "ast_hash": "96b5a4be9ffc1dd65ca3859346677633",
+    "semantic_hash": "96b5a4be9ffc1dd65ca3859346677633"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/UUIDTypeConverter.java": {
+    "mtime": 1787211370.3113053,
+    "seen": 1789545826.947961,
+    "ast_hash": "5ac0dcca7866683de15f295b5ef62056",
+    "semantic_hash": "5ac0dcca7866683de15f295b5ef62056"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/data/VendorData.java": {
+    "mtime": 1787211420.592264,
+    "seen": 1789545826.947962,
+    "ast_hash": "a9bd1795a20323937941ff19274cf625",
+    "semantic_hash": "a9bd1795a20323937941ff19274cf625"
+  },
+  "framework/src/main/java/com/joser/topologyinventory/framework/adapters/output/h2/mappers/RouterH2Mapper.java": {
+    "mtime": 1787213429.1318934,
+    "seen": 1789545826.947962,
+    "ast_hash": "287e13113e61c3f131374a2d43545be8",
+    "semantic_hash": "287e13113e61c3f131374a2d43545be8"
+  },
+  "framework/src/main/java/module-info.java": {
+    "mtime": 1789135547.7843976,
+    "seen": 1789545826.947962,
+    "ast_hash": "cdead74a3fed4c7afd8b5e4f7c088001",
+    "semantic_hash": "cdead74a3fed4c7afd8b5e4f7c088001"
+  },
+  "framework/src/main/resources/inventory.sql": {
+    "mtime": 1789135413.208035,
+    "seen": 1789545826.9479628,
+    "ast_hash": "3a6b128535135c9f0239015ab561962b",
+    "semantic_hash": "3a6b128535135c9f0239015ab561962b"
+  },
+  "framework/src/test/java/com/joser/topologyinventory/framework/FrameworkTestData.java": {
+    "mtime": 1789134899.74371,
+    "seen": 1789545826.9479628,
+    "ast_hash": "6667c4675b43e647d7ce1edd27e79ef2",
+    "semantic_hash": "6667c4675b43e647d7ce1edd27e79ef2"
+  },
+  "framework/src/test/java/com/joser/topologyinventory/framework/NetworkTest.java": {
+    "mtime": 1789134965.1498716,
+    "seen": 1789545826.9479628,
+    "ast_hash": "8fb9540d5ede1a623b3a2c248513ccf8",
+    "semantic_hash": "8fb9540d5ede1a623b3a2c248513ccf8"
+  },
+  "framework/src/test/java/com/joser/topologyinventory/framework/RouterTest.java": {
+    "mtime": 1789135090.4558604,
+    "seen": 1789545826.947964,
+    "ast_hash": "4e3cddaee77800576a6f28a066036149",
+    "semantic_hash": "4e3cddaee77800576a6f28a066036149"
+  },
+  "framework/src/test/java/com/joser/topologyinventory/framework/SwitchTest.java": {
+    "mtime": 1789135154.770108,
+    "seen": 1789545826.947964,
+    "ast_hash": "536ace1cb9b14e170e5b8c7b07c0afbc",
+    "semantic_hash": "536ace1cb9b14e170e5b8c7b07c0afbc"
+  },
+  "pom.xml": {
+    "mtime": 1787149244.7957852,
+    "seen": 1789545826.947965,
+    "ast_hash": "5ef40bba222413f9a31223819efb69ba",
+    "semantic_hash": "5ef40bba222413f9a31223819efb69ba"
+  }
+}
