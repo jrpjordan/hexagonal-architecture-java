@@ -20,14 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class NetworkTest extends FrameworkTestData {
 
-    NetworkManagementGenericAdapter networkManagementGenericAdapter;
-    SwitchManagementGenericAdapter switchManagementGenericAdapter;
-
     public NetworkTest(){
-        this.networkManagementGenericAdapter = new NetworkManagementGenericAdapter();
-        this.switchManagementGenericAdapter = new SwitchManagementGenericAdapter();
+        loadPortsAndUseCases();
         loadData();
     }
+
     @Test
     @Order(1)
     public void addNetworkToSwitch(){

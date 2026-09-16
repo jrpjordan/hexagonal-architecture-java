@@ -1,5 +1,6 @@
 package com.joser.topologyinventory.application.usecases;
 
+import com.joser.topologyinventory.application.ports.output.RouterManagementOutputPort;
 import com.joser.topologyinventory.domain.entity.CoreRouter;
 import com.joser.topologyinventory.domain.vo.IP;
 import com.joser.topologyinventory.domain.vo.Location;
@@ -10,6 +11,8 @@ import com.joser.topologyinventory.domain.vo.Model;
 import com.joser.topologyinventory.domain.vo.Id;
 
 public interface RouterManagementUseCase {
+
+    void setOutputPort(RouterManagementOutputPort routerManagementOutputPort);
 
     Router createRouter(
             Id id,

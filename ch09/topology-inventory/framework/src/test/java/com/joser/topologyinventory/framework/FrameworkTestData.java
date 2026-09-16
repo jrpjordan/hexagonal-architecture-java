@@ -1,5 +1,10 @@
 package com.joser.topologyinventory.framework;
 
+import com.joser.topologyinventory.application.ports.output.RouterManagementOutputPort;
+import com.joser.topologyinventory.application.ports.output.SwitchManagementOutputPort;
+import com.joser.topologyinventory.application.usecases.NetworkManagementUseCase;
+import com.joser.topologyinventory.application.usecases.RouterManagementUseCase;
+import com.joser.topologyinventory.application.usecases.SwitchManagementUseCase;
 import com.joser.topologyinventory.domain.entity.CoreRouter;
 import com.joser.topologyinventory.domain.entity.EdgeRouter;
 import com.joser.topologyinventory.domain.entity.Router;
@@ -12,11 +17,15 @@ import com.joser.topologyinventory.domain.vo.Network;
 import com.joser.topologyinventory.domain.vo.RouterType;
 import com.joser.topologyinventory.domain.vo.SwitchType;
 import com.joser.topologyinventory.domain.vo.Vendor;
+import com.joser.topologyinventory.framework.adapters.input.generic.NetworkManagementGenericAdapter;
+import com.joser.topologyinventory.framework.adapters.input.generic.RouterManagementGenericAdapter;
+import com.joser.topologyinventory.framework.adapters.input.generic.SwitchManagementGenericAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ServiceLoader;
 
 public class FrameworkTestData {
 
@@ -45,6 +54,41 @@ public class FrameworkTestData {
     protected Location locationA;
 
     protected Location locationB;
+
+    protected RouterManagementGenericAdapter routerManagementGenericAdapter;
+    protected SwitchManagementGenericAdapter switchManagementGenericAdapter;
+    protected NetworkManagementGenericAdapter networkManagementGenericAdapter;
+
+    protected void loadPortsAndUseCases() {
+        // Load router implementations
+        ServiceLoader<RouterManagementUseCase> loaderUseCaseRouter = ServiceLoader.load(RouterManagementUseCase.class);
+        RouterManagementUseCase routerManagementUseCase = loaderUseCaseRouter.findFirst()
+                .orElseThrow(() -> new IllegalStateException("RouterManagementUseCase not found in ServiceLoader"));
+        ServiceLoader<RouterManagementOutputPort> loaderOutputRouter = ServiceLoader.load(RouterManagementOutputPort.class);
+        RouterManagementOutputPort routerManagementOutputPort = loaderOutputRouter.findFirst()
+                .orElseThrow(() -> new IllegalStateException("RouterManagementOutputPort not found in ServiceLoader"));
+
+        // Load switch implementations
+        ServiceLoader<SwitchManagementUseCase> loaderUseCaseSwitch = ServiceLoader.load(SwitchManagementUseCase.class);
+        SwitchManagementUseCase switchManagementUseCase = loaderUseCaseSwitch.findFirst()
+                .orElseThrow(() -> new IllegalStateException("SwitchManagementUseCase not found in ServiceLoader"));
+        ServiceLoader<SwitchManagementOutputPort> loaderOutputSwitch = ServiceLoader.load(SwitchManagementOutputPort.class);
+        SwitchManagementOutputPort switchManagementOutputPort = loaderOutputSwitch.findFirst()
+                .orElseThrow(() -> new IllegalStateException("SwitchManagementOutputPort not found in ServiceLoader"));
+
+        // Load network implementations
+        ServiceLoader<NetworkManagementUseCase> loaderUseCaseNetwork = ServiceLoader.load(NetworkManagementUseCase.class);
+        NetworkManagementUseCase networkManagementUseCase = loaderUseCaseNetwork.findFirst()
+                .orElseThrow(() -> new IllegalStateException("NetworkManagementUseCase not found in ServiceLoader"));
+
+        routerManagementUseCase.setOutputPort(routerManagementOutputPort);
+        switchManagementUseCase.setOutputPort(switchManagementOutputPort);
+        networkManagementUseCase.setOutputPort(routerManagementOutputPort);
+
+        this.routerManagementGenericAdapter = new RouterManagementGenericAdapter(routerManagementUseCase);
+        this.switchManagementGenericAdapter = new SwitchManagementGenericAdapter(routerManagementUseCase, switchManagementUseCase);
+        this.networkManagementGenericAdapter = new NetworkManagementGenericAdapter(switchManagementUseCase, networkManagementUseCase);
+    }
 
     public void loadData(){
         this.locationA = new Location(

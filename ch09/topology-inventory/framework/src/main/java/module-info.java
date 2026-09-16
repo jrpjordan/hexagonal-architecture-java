@@ -10,4 +10,15 @@ module framework {
 
     exports com.joser.topologyinventory.framework.adapters.output.h2.data;
     opens com.joser.topologyinventory.framework.adapters.output.h2.data;
+
+    provides com.joser.topologyinventory.application.ports.output.RouterManagementOutputPort
+            with com.joser.topologyinventory.framework.adapters.output.h2.RouterManagementH2Adapter;
+    provides com.joser.topologyinventory.application.ports.output.SwitchManagementOutputPort
+            with com.joser.topologyinventory.framework.adapters.output.h2.SwitchManagementH2Adapter;
+
+    uses com.joser.topologyinventory.application.usecases.RouterManagementUseCase;
+    uses com.joser.topologyinventory.application.usecases.SwitchManagementUseCase;
+    uses com.joser.topologyinventory.application.usecases.NetworkManagementUseCase;
+    uses com.joser.topologyinventory.application.ports.output.RouterManagementOutputPort;
+    uses com.joser.topologyinventory.application.ports.output.SwitchManagementOutputPort;
 }

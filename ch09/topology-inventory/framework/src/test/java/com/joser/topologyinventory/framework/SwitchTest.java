@@ -20,10 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SwitchTest extends FrameworkTestData {
 
-    SwitchManagementGenericAdapter switchManagementGenericAdapter;
-
     public SwitchTest(){
-        this.switchManagementGenericAdapter = new SwitchManagementGenericAdapter();
+        loadPortsAndUseCases();
         loadData();
     }
 
