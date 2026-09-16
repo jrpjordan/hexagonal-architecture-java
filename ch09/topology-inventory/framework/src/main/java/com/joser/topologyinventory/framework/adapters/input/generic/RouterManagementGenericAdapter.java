@@ -16,14 +16,8 @@ public class RouterManagementGenericAdapter {
 
     private RouterManagementUseCase routerManagementUseCase;
 
-    public RouterManagementGenericAdapter(){
-        setPorts();
-    }
-
-    private void setPorts(){
-        this.routerManagementUseCase = new RouterManagementInputPort(
-                RouterManagementH2Adapter.getInstance()
-        );
+    public RouterManagementGenericAdapter(RouterManagementUseCase routerManagementUseCase) {
+        this.routerManagementUseCase = routerManagementUseCase;
     }
 
     /**

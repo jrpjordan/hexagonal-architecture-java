@@ -15,10 +15,12 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class RouterManagementInputPort implements RouterManagementUseCase {
+
     RouterManagementOutputPort routerManagementOutputPort;
 
-    public RouterManagementInputPort(RouterManagementOutputPort routerNetworkOutputPort){
-        this.routerManagementOutputPort = routerNetworkOutputPort;
+    @Override
+    public void setOutputPort(RouterManagementOutputPort routerManagementOutputPort) {
+        this.routerManagementOutputPort = routerManagementOutputPort;
     }
 
     @Override

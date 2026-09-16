@@ -17,7 +17,8 @@ public class SwitchManagementInputPort implements SwitchManagementUseCase {
 
     private SwitchManagementOutputPort switchManagementOutputPort;
 
-    public SwitchManagementInputPort(SwitchManagementOutputPort switchManagementOutputPort){
+    @Override
+    public void setOutputPort(SwitchManagementOutputPort switchManagementOutputPort) {
         this.switchManagementOutputPort = switchManagementOutputPort;
     }
 
