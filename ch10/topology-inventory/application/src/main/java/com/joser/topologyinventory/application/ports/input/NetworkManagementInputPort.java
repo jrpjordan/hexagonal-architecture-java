@@ -1,0 +1,59 @@
+package com.joser.topologyinventory.application.ports.input;
+
+import com.joser.topologyinventory.application.ports.output.RouterManagementOutputPort;
+import com.joser.topologyinventory.application.usecases.NetworkManagementUseCase;
+import com.joser.topologyinventory.domain.entity.EdgeRouter;
+import com.joser.topologyinventory.domain.entity.Switch;
+import com.joser.topologyinventory.domain.service.NetworkService;
+import com.joser.topologyinventory.domain.vo.IP;
+import com.joser.topologyinventory.domain.vo.Id;
+import com.joser.topologyinventory.domain.vo.Network;
+import lombok.NoArgsConstructor;
+
+import java.util.function.Predicate;
+
+@NoArgsConstructor
+public class NetworkManagementInputPort implements NetworkManagementUseCase {
+
+    RouterManagementOutputPort routerManagementOutputPort;
+
+    @Override
+    public void setOutputPort(RouterManagementOutputPort routerManagementOutputPort) {
+        this.routerManagementOutputPort = routerManagementOutputPort;
+    }
+
+    @Override
+    public Network createNetwork(IP networkAddress, String networkName, int networkCidr) {
+        return Network.builder().
+                networkAddress(networkAddress).
+                networkName(networkName).
+                networkCidr(networkCidr).
+                build();
+    }
+
+    @Override
+    public Switch addNetworkToSwitch(Network network, Switch networkSwitch) {
+        networkSwitch.addNetworkToSwitch(network);
+        return networkSwitch;
+    }
+
+    @Override
+    public Switch removeNetworkFromSwitch(String networkName, Switch networkSwitch) {
+        Id routerId = networkSwitch.getRouterId();
+        Id switchId = networkSwitch.getId();
+        EdgeRouter edgeRouter = (EdgeRouter) routerManagementOutputPort
+                .retrieveRouter(routerId);
+        Switch switchToRemoveNetwork = edgeRouter
+                .getSwitches()
+                .get(switchId);
+        Predicate<Network> networkPredicate = Network.getNetworkNamePredicate(networkName);
+        var network = NetworkService.
+                findNetwork(switchToRemoveNetwork.getSwitchNetworks(), networkPredicate);
+        switchToRemoveNetwork.removeNetworkFromSwitch(network);
+        routerManagementOutputPort.persistRouter(edgeRouter);
+        return switchToRemoveNetwork.removeNetworkFromSwitch(network)
+                ? switchToRemoveNetwork
+                : null;
+    }
+    
+}
